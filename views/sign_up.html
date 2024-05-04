@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <script src="assets/js/signup.js"></script>
+
 
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -132,10 +134,10 @@
                         <ul id="navigation">
                             <li><a href="index.html">Home</a></li>
 
-                            <li><a href="Login.html">Login/signup</a>
+                            <li><a href="log-in.html">Login/signup</a>
                                 <ul class="submenu">
-                                    <li><a href="Login.html">Login</a></li>
-                                    <li><a href="Signup.html">signup</a></li>
+                                    <li><a href="log-in.html">Login</a></li>
+                                    <li><a href="sign_up.html">signup</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -156,13 +158,29 @@
 
     <div class="login-container">
         <h2>Sign Up</h2>
-        <form class="login-form">
-            <input type="text" placeholder="First Name" required>
-            <input type="text" placeholder="Last Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <input type="password" placeholder="Confirm Password" required>
-            <input type="tel" placeholder="Phone Number" required>
+        <form action="/sign_up" method="POST"  class="login-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
             <input type="submit" value="Sign Up" onclick="window.location.href = 'emailverification.html';">
 
         </form>

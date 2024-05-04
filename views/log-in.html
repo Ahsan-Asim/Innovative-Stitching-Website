@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Email Verification</title>
+    <title>Stiching </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -30,41 +31,44 @@
             font-family: Arial, sans-serif;
         }
 
-        .verification-container {
+        .login-container {
             max-width: 400px;
             margin: 100px auto;
             background-color: #c6a16e;
-            padding: 30px;
+            padding: 30px; /* Increased padding for a bigger form */
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .verification-container h2 {
+        .login-container h2 {
             text-align: center;
         }
 
-        .verification-form input[type="text"] {
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
             width: 100%;
-            padding: 15px;
+            padding: 15px; /* Increased padding for input fields */
             margin: 10px 0;
-            border: 2px solid transparent;
+            border: 2px solid transparent; /* Transparent border by default */
             border-radius: 5px;
-            background-color: #000;
-            color: #fff;
-            transition: border-color 0.3s ease-in-out;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text color */
+            transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
         }
 
         /* Placeholder styles */
-        .verification-form input[type="text"]::placeholder {
+        .login-form input[type="text"]::placeholder,
+        .login-form input[type="password"]::placeholder {
             color: #fff;
             opacity: 0.7;
         }
 
-        .verification-form input[type="text"]:focus {
-            border-color: #c6a16e;
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus {
+            border-color: #c6a16e; /* Border color on focus */
         }
 
-        .verification-form input[type="submit"] {
+        .login-form input[type="submit"] {
             width: 100%;
             padding: 10px;
             margin-top: 20px;
@@ -75,8 +79,22 @@
             cursor: pointer;
         }
 
-        .verification-form input[type="submit"]:hover {
+        .login-form input[type="submit"]:hover {
             background-color: #333;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .forgot-password a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -108,10 +126,10 @@
                         <ul id="navigation">
                             <li><a href="index.html">Home</a></li>
 
-                            <li><a href="Login.html">Login/signup</a>
+                            <li><a href="log-in.html">Login/signup</a>
                                 <ul class="submenu">
-                                    <li><a href="Login.html">Login</a></li>
-                                    <li><a href="Signup.html">Signup</a></li>
+                                    <li><a href="log-in.html">Login</a></li>
+                                    <li><a href="sign_up.html">signup</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -130,12 +148,18 @@
         <!-- Header End -->
     </header>
 
-    <div class="verification-container">
-        <h2>Email Verification</h2>
-        <form class="verification-form">
-            <input type="text" placeholder="Verification Code" required>
-            <input type="submit" value="Verify">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/log-in" method="POST"  class="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
         </form>
+        <div class="forgot-password">
+            <a href="forgot.html">Forgot Password?</a>
+        </div>
     </div>
 
     <footer>
@@ -166,6 +190,8 @@
                             <div class="single-footer-caption">
                                 <div class="footer-tittle">
                                     <h4>Social</h4>
+                                   
+                                    
                                     <!-- Social -->
                                     <div class="footer-social">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -177,30 +203,29 @@
                         </div>
                     </div>
                 </div>
-               
+                
             </div>
         </div>
     </footer>
 
-   <!-- JS here -->
-      
-          <!-- All JS Custom Plugins Link Here here -->
-          <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-          <!-- Jquery, Popper, Bootstrap -->
-          <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="./assets/js/popper.min.js"></script>
-        <script src="./assets/js/bootstrap.min.js"></script>
-         <!-- Jquery Mobile Menu -->
-        <script src="./assets/js/jquery.slicknav.min.js"></script>
-  
-          
-        <!-- Date Picker -->
-        <script src="./assets/js/gijgo.min.js"></script>
-          
-          <!-- Jquery Plugins, main Jquery -->	
-        <script src="./assets/js/plugins.js"></script>
-        <script src="./assets/js/main.js"></script>
-  
-  </body>
-  
-  </html>
+    <!-- JS here -->
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Date Picker -->
+    <script src="./assets/js/gijgo.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Stiching </title>
+    <title>Email Verification</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    
 
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -30,53 +31,41 @@
             font-family: Arial, sans-serif;
         }
 
-        .header-area {
-            padding: 50px 0; /* Increased padding for the header */
-        }
-
-        .footer-tittle h3 {
-            font-size: 24px; /* Increased font size for the footer heading */
-        }
-
-        .login-container {
+        .verification-container {
             max-width: 400px;
             margin: 100px auto;
             background-color: #c6a16e;
-            padding: 30px; /* Increased padding for a bigger form */
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .login-container h2 {
+        .verification-container h2 {
             text-align: center;
-            font-size: 28px; /* Increased font size for the login heading */
         }
 
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
+        .verification-form input[type="text"] {
             width: 100%;
-            padding: 15px; /* Increased padding for input fields */
+            padding: 15px;
             margin: 10px 0;
-            border: 2px solid transparent; /* Transparent border by default */
+            border: 2px solid transparent;
             border-radius: 5px;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text color */
-            transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
+            background-color: #000;
+            color: #fff;
+            transition: border-color 0.3s ease-in-out;
         }
 
         /* Placeholder styles */
-        .login-form input[type="text"]::placeholder,
-        .login-form input[type="password"]::placeholder {
+        .verification-form input[type="text"]::placeholder {
             color: #fff;
             opacity: 0.7;
         }
 
-        .login-form input[type="text"]:focus,
-        .login-form input[type="password"]:focus {
-            border-color: #c6a16e; /* Border color on focus */
+        .verification-form input[type="text"]:focus {
+            border-color: #c6a16e;
         }
 
-        .login-form input[type="submit"] {
+        .verification-form input[type="submit"] {
             width: 100%;
             padding: 10px;
             margin-top: 20px;
@@ -87,23 +76,8 @@
             cursor: pointer;
         }
 
-        .login-form input[type="submit"]:hover {
+        .verification-form input[type="submit"]:hover {
             background-color: #333;
-        }
-
-        .forgot-password {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 18px; /* Increased font size for the forgot password link */
-        }
-
-        .forgot-password a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .forgot-password a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -135,10 +109,10 @@
                         <ul id="navigation">
                             <li><a href="index.html">Home</a></li>
 
-                            <li><a href="Login.html">Login/signup</a>
+                            <li><a href="log-in.html">Login/signup</a>
                                 <ul class="submenu">
-                                    <li><a href="Login.html">Login</a></li>
-                                    <li><a href="Signup.html">signup</a></li>
+                                    <li><a href="log-in.html">Login</a></li>
+                                    <li><a href="sign_up.html">Signup</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -157,15 +131,12 @@
         <!-- Header End -->
     </header>
 
-    <div class="login-container">
-        <h2>Forgot Password</h2>
-        <form class="login-form">
-            <input type="text" placeholder="Email" required>
-            <input type="submit" value="Reset Password">
+    <div class="verification-container">
+        <h2>Email Verification</h2>
+        <form class="verification-form">
+            <input type="text" placeholder="Verification Code" required>
+            <input type="submit" value="Verify">
         </form>
-        <div class="forgot-password">
-            <a href="#">Remembered your password?</a>
-        </div>
     </div>
 
     <footer>
@@ -191,7 +162,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+                        
                         <div class="single-menu3">
                             <div class="single-footer-caption">
                                 <div class="footer-tittle">
@@ -210,12 +181,12 @@
                
             </div>
         </div>
-     </footer>
-     
-  <!-- JS here -->
+    </footer>
+
+   <!-- JS here -->
       
           <!-- All JS Custom Plugins Link Here here -->
-        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+          <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
           <!-- Jquery, Popper, Bootstrap -->
           <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="./assets/js/popper.min.js"></script>
