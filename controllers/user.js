@@ -2,12 +2,51 @@ const User = require("../Models/user");
 const bodyParser = require("body-parser");
 const express=require("express")
 const router=express.Router();
+const path = require("path");
+const nodemailer = require('nodemailer');
+
+
 
 router.use(bodyParser.json());
 router.use(express.static('views'));
 router.use(bodyParser.urlencoded({
     extended: true
 }));
+
+
+////////////nodemailer code///
+// Create a nodemailer transporter
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'f219202@cfd.nu.edu.pk',
+        pass: 'Ahsan12#'
+    }
+});
+
+
+
+// Function to generate a random 8-digit verification code
+function generateVerificationCode() {
+    return Math.floor(10000000 + Math.random() * 90000000);
+}
+
+// Function to send verification email
+async function sendVerificationEmail(email, verificationCode) {
+    try {
+        // Send mail with defined transport object
+        let info = await transporter.sendMail({
+            from: '"Your App" <your-email@gmail.com>',
+            to: email,
+            subject: 'Email Verification',
+            text: `Your verification code is: ${verificationCode}`
+        });
+        console.log('Verification email sent:', info.messageId);
+    } catch (error) {
+        console.error('Error sending verification email:', error);
+    }
+}
+////////////////////////
 
 async function handleLogin(req,res){
     try {
@@ -26,7 +65,48 @@ async function handleLogin(req,res){
     }
 }
 
-async function handleSign_Up(req,res){
+// async function handleSign_Up(req,res){
+//     try {
+//         // Check if user already exists based on email
+//         const existingUser = await User.findOne({ email: req.body.email });
+//         if (existingUser) {
+//             return res.status(400).send("User with the same email already exists.");
+//         }
+
+//         // Create a new user instance
+//         const newUser = new User({
+//             name: req.body.name,
+//             age: req.body.age,
+//             email: req.body.email,
+//             phone: req.body.phoneNumber,
+//             gender: req.body.gender,
+//             password: req.body.password
+//         });
+
+//         // Save the new user
+//         await newUser.save();
+//         console.log("Record inserted successfully");
+//         // Inside handleSign_Up function
+// // Generate verification code
+// const verificationCode = generateVerificationCode();
+
+// // Send verification email
+// await sendVerificationEmail(newUser.email, verificationCode);
+
+// // Store verification code in a global variable or session (not recommended for production)
+// global.verificationCode = verificationCode;
+
+// // Redirect to email verification page
+// return res.redirect('/emailverification');
+
+//         // return res.redirect('/');
+//     } catch (error) {
+//         console.error("Error:", error);
+//         return res.status(500).send("Internal Server Error");
+//     }
+// }
+
+async function handleSign_Up(req, res) {
     try {
         // Check if user already exists based on email
         const existingUser = await User.findOne({ email: req.body.email });
@@ -47,12 +127,24 @@ async function handleSign_Up(req,res){
         // Save the new user
         await newUser.save();
         console.log("Record inserted successfully");
-        return res.redirect('/');
+
+        // Generate verification code
+        const verificationCode = generateVerificationCode();
+
+        // Send verification email
+        await sendVerificationEmail(newUser.email, verificationCode);
+
+        // Store verification code in a global variable or session (not recommended for production)
+        global.verificationCode = verificationCode;
+
+        // Redirect to email verification page
+        return res.redirect('/emailverification.html');
     } catch (error) {
         console.error("Error:", error);
         return res.status(500).send("Internal Server Error");
     }
 }
+
 
 async function handleIndexFile(req,res){
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
@@ -69,10 +161,33 @@ async function handleForgotPassword(req,res){
 
 }
 
-async function handleemailverification(req,res){
-    res.sendFile(path.join(__dirname, 'views', 'emailverification.html'));
+// async function handleemailverification(req,res){
+//     res.sendFile(path.join(__dirname, 'views', 'emailverification.html'));
 
+// }
+
+async function handleemailverification(req, res) {
+    try {
+        const { verificationCode } = req.body;
+        
+        // Check if the verification code matches the global verification code
+        if (verificationCode == global.verificationCode) {
+            // If the verification code is correct, clear the global verification code
+            global.verificationCode = null;
+            
+            // Redirect to the home page or any other page as needed
+            return res.redirect('/');
+        } else {
+            // If the verification code is incorrect, return an error message
+            return res.status(400).send("Invalid verification code");
+        }
+    } catch (error) {
+        console.error("Error occurred during email verification:", error);
+        res.status(500).send("Internal Server Error: " + error.message);
+    }
 }
+
+
 
 module.exports={
     handleLogin,
@@ -80,5 +195,7 @@ module.exports={
     handleIndexFile,
     handleSign_Up,
     handleForgotPassword,
-    handleemailverification
+    handleemailverification,
+    generateVerificationCode,
+    sendVerificationEmail
 }

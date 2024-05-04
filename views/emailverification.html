@@ -133,10 +133,13 @@
 
     <div class="verification-container">
         <h2>Email Verification</h2>
-        <form class="verification-form">
-            <input type="text" placeholder="Verification Code" required>
-            <input type="submit" value="Verify">
-        </form>
+        
+            <form class="verification-form" action="/emailverification" method="POST">
+                <input type="text" placeholder="Verification Code" name="verificationCode" required>
+                <input type="submit" value="Verify">
+            </form>
+        
+        
     </div>
 
     <footer>
