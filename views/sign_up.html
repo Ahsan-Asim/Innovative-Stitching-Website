@@ -254,6 +254,35 @@
       <script src="./assets/js/plugins.js"></script>
       <script src="./assets/js/main.js"></script>
 
+
+      <!--Script if user face failure in updating password so move back to sign_up page with pop up message-->
+      <script>
+        // Function to parse URL parameters
+        function getUrlParams() {
+            const params = {};
+            const searchParams = new URLSearchParams(window.location.search);
+            for (const [key, value] of searchParams) {
+                params[key] = value;
+            }
+            return params;
+        }
+    
+        // Function to display alert message
+        function displayAlert() {
+            const params = getUrlParams();
+            const alertMessage = params.alert;
+            if (alertMessage) {
+                alert(decodeURIComponent(alertMessage));
+            }
+        }
+    
+        // Call the displayAlert function when the page loads
+        window.onload = function () {
+            displayAlert();
+        };
+    </script>
+    
+
 </body>
 
 </html>

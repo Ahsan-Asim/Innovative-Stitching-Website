@@ -14,6 +14,35 @@ router.use(bodyParser.urlencoded({
 }));
 
 
+
+
+/////for the forgot hndler///
+async function handleForgotPasswordSubmit(req, res) {
+    try {
+        const { name, password } = req.body;
+        
+        // Check if user exists based on name
+        const user = await User.findOne({ name });
+        if (!user) {
+            // If user doesn't exist, redirect to signup page with an alert
+            return res.redirect('/sign_up.html?alert=User%20does%20not%20exist.%20Please%20sign%20up.');
+        }
+
+        // Update the user's password
+        user.password = password;
+        await user.save();
+
+        // Redirect to login page with a success alert
+        return res.redirect('/log-in.html?alert=Password%20updated%20successfully.%20Please%20login.');
+    } catch (error) {
+        console.error("Error occurred during password update:", error);
+        // Redirect to signup page with an error alert
+        return res.redirect('/sign_up.html?alert=An%20error%20occurred.%20Please%20try%20again.');
+    }
+}
+
+///////////
+
 ////////////nodemailer code///
 // Create a nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -145,7 +174,6 @@ async function handleSign_Up(req, res) {
     }
 }
 
-
 async function handleIndexFile(req,res){
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 
@@ -197,5 +225,6 @@ module.exports={
     handleForgotPassword,
     handleemailverification,
     generateVerificationCode,
-    sendVerificationEmail
+    sendVerificationEmail,
+    handleForgotPasswordSubmit
 }

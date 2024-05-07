@@ -226,6 +226,26 @@
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
 
+    <script>
+        // Function to extract query parameters from URL
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+    
+        // Function to display alert message
+        function displayAlert() {
+            const alertMessage = getQueryParam('alert');
+            if (alertMessage) {
+                alert(alertMessage);
+            }
+        }
+    
+        // Call displayAlert function when the page loads
+        window.onload = displayAlert;
+    </script>
+    
+
 </body>
 
 </html>
