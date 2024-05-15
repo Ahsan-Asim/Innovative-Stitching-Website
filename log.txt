@@ -808,3 +808,53 @@
 1715407641740: ::ffff:127.0.0.1 POST: /log-in
 
 1715407641832: ::ffff:127.0.0.1 GET: /favicon.ico
+
+1715707660206: ::ffff:127.0.0.1 GET: /assets/img/hero/hero_arrow.png
+
+1715707660701: ::ffff:127.0.0.1 GET: /site.webmanifest
+
+1715707663866: ::ffff:127.0.0.1 GET: /assets/css/gijgo.css
+
+1715707663935: ::ffff:127.0.0.1 GET: /assets/js/gijgo.min.js
+
+1715707664057: ::ffff:127.0.0.1 GET: /assets/img/favicon.png
+
+1715707673981: ::ffff:127.0.0.1 POST: /log-in
+
+1715707674150: ::ffff:127.0.0.1 GET: /favicon.ico
+
+1715707679931: ::ffff:127.0.0.1 POST: /log-in
+
+1715707689140: ::ffff:127.0.0.1 POST: /log-in
+
+1715707694088: ::ffff:127.0.0.1 POST: /log-in
+
+1715707694265: ::ffff:127.0.0.1 GET: /assets/img/hero/hero_arrow.png
+
+1715707694450: ::ffff:127.0.0.1 GET: /site.webmanifest
+
+1715707726717: ::ffff:127.0.0.1 GET: /assets/css/gijgo.css
+
+1715707726784: ::ffff:127.0.0.1 GET: /assets/js/gijgo.min.js
+
+1715707730974: ::ffff:127.0.0.1 GET: /assets/js/signup.js
+
+1715707731002: ::ffff:127.0.0.1 GET: /assets/css/gijgo.css
+
+1715707731044: ::ffff:127.0.0.1 GET: /assets/js/gijgo.min.js
+
+1715707770883: ::ffff:127.0.0.1 POST: /sign_up
+
+1715707838370: ::ffff:127.0.0.1 POST: /sign_up
+
+1715707841657: ::ffff:127.0.0.1 GET: /assets/css/gijgo.css
+
+1715707841706: ::ffff:127.0.0.1 GET: /assets/js/gijgo.min.js
+
+1715718825239: ::ffff:127.0.0.1 GET: /assets/img/hero/hero_arrow.png
+
+1715718825649: ::ffff:127.0.0.1 GET: /site.webmanifest
+
+1715719486104: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715719486888: ::1 GET: /site.webmanifest

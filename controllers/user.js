@@ -65,7 +65,7 @@ async function sendVerificationEmail(email, verificationCode) {
     try {
         // Send mail with defined transport object
         let info = await transporter.sendMail({
-            from: '"Your App" <your-email@gmail.com>',
+            from: '"Your App" <f219202@cfd.nu.edu.pk>',
             to: email,
             subject: 'Email Verification',
             text: `Your verification code is: ${verificationCode}`
