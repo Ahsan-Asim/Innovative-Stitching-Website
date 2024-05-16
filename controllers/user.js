@@ -13,6 +13,8 @@ router.use(bodyParser.urlencoded({
     extended: true
 }));
 
+let role="";
+
 
 
 
@@ -65,7 +67,7 @@ async function sendVerificationEmail(email, verificationCode) {
     try {
         // Send mail with defined transport object
         let info = await transporter.sendMail({
-            from: '"Your App" <your-email@gmail.com>',
+            from: '"Your App" <f219202@cfd.nu.edu.pk>',
             to: email,
             subject: 'Email Verification',
             text: `Your verification code is: ${verificationCode}`
@@ -87,8 +89,17 @@ async function handleLogin(req,res){
             return res.status(400).send("Invalid email or password");
         }
         // If user and password are correct, redirect to home page
-        return res.redirect('/');
-    } catch (error) {
+ // Redirect to the home page or any other page as needed
+ if(user.role=="customer"){
+    return res.redirect('/');
+}
+else if(user.role=="manager"){
+    return res.redirect('/admin.html');
+}
+else{
+    return res.redirect('/log-in.html');
+} 
+   } catch (error) {
         console.error("Error occurred while logging in:", error);
         res.status(500).send("Internal Server Error: " + error.message);
     }
@@ -150,6 +161,7 @@ async function handleSign_Up(req, res) {
             email: req.body.email,
             phone: req.body.phoneNumber,
             gender: req.body.gender,
+            role:req.body.role,
             password: req.body.password
         });
 
@@ -165,9 +177,11 @@ async function handleSign_Up(req, res) {
 
         // Store verification code in a global variable or session (not recommended for production)
         global.verificationCode = verificationCode;
+        role=newUser.role;
 
         // Redirect to email verification page
         return res.redirect('/emailverification.html');
+    
     } catch (error) {
         console.error("Error:", error);
         return res.status(500).send("Internal Server Error");
@@ -204,7 +218,15 @@ async function handleemailverification(req, res) {
             global.verificationCode = null;
             
             // Redirect to the home page or any other page as needed
-            return res.redirect('/');
+            if(role=="customer"){
+                return res.redirect('/');
+            }
+            else if(role=="manager"){
+                return res.redirect('/admin.html');
+            }
+            else{
+                return res.redirect('/log-in.html');
+            }
         } else {
             // If the verification code is incorrect, return an error message
             return res.status(400).send("Invalid verification code");
@@ -217,6 +239,180 @@ async function handleemailverification(req, res) {
 
 
 
+
+
+async function handleadd_tailor(req, res) {
+    try {
+        // Check if user already exists based on email
+        const existingUser = await User.findOne({ email: req.body.email });
+        if (existingUser) {
+            return res.status(400).send("User with the same email already exists.");
+        }
+
+        // Create a new user instance
+        const newUser = new User({
+            name: req.body.name,
+            age: req.body.age,
+            email: req.body.email,
+            phone: req.body.phoneNumber,
+            gender: req.body.gender,
+            role:req.body.role,
+            password: req.body.password
+        });
+
+        // Save the new user
+        await newUser.save();
+        console.log("Record inserted successfully");
+
+        // Generate verification code
+        const verificationCode = generateVerificationCode();
+
+        // Send verification email
+        await sendVerificationEmail(newUser.email, verificationCode);
+
+        // Store verification code in a global variable or session (not recommended for production)
+        global.verificationCode = verificationCode;
+        role=newUser.role;
+
+        // Redirect to email verification page
+        return res.redirect('/admin.html');
+    
+    } catch (error) {
+        console.error("Error:", error);
+        return res.status(500).send("Internal Server Error");
+    }
+}
+
+
+async function handleFindTailorByEmail(req, res) {
+    try {
+        // Find tailor by email
+        const foundTailor = await User.findOne({ email: req.body.email });
+
+        // If tailor not found, send response
+        if (!foundTailor) {
+            return res.status(404).send("Tailor not found.");
+        }
+
+        // Redirect to update.html with tailor details as query parameters
+        return res.redirect(`/update_tailor.html?name=${foundTailor.name}&age=${foundTailor.age}&email=${foundTailor.email}&phone=${foundTailor.phone}&gender=${foundTailor.gender}&role=${foundTailor.role}`);
+    
+    } catch (error) {
+        console.error("Error:", error);
+        return res.status(500).send("Internal Server Error");
+    }
+}
+
+
+// async function handleUpdateTailor(req, res) {
+//     try {
+//         // Extract data from the request body
+//         const { name, age, email, phone, gender, role,password } = req.body;
+
+//         // Find the tailor by ID
+//         const foundTailor = await User.findOne({ email });
+
+//         // If tailor not found, send response
+//         if (!foundTailor) {
+//             return res.status(404).send("Tailor not found.");
+//         }
+
+//         // Update tailor details
+//         foundTailor.name = name;
+//         foundTailor.age = age;
+//         foundTailor.email = email;
+//         foundTailor.phone = phone;
+//         foundTailor.gender = gender;
+//         foundTailor.role = role;
+//         foundTailor.password = password;
+
+
+//         // Save the updated tailor
+//         await foundTailor.save();
+
+//         return res.redirect('/admin.html');
+
+//         // Redirect to a success page or send a success response
+//         // return res.status(200).send("Tailor updated successfully.");
+    
+//     } catch (error) {
+//         console.error("Error:", error);
+//         return res.status(500).send("Internal Server Error");
+//     }
+// }
+
+async function handleUpdateTailor(req, res) {
+    try {
+        // Extract data from the request body
+        const { name, age, email, phone, gender, role, password } = req.body;
+
+        // Find the tailor by email
+        const foundTailor = await User.findOne({ email });
+
+        // If tailor not found, send response
+        if (!foundTailor) {
+            return res.status(404).send("Tailor not found.");
+        }
+
+        // Update tailor details
+        foundTailor.name = name;
+        foundTailor.age = age;
+        foundTailor.phone = phone;
+        foundTailor.gender = gender;
+        foundTailor.role = role;
+        foundTailor.password = password;
+
+        // Save the updated tailor
+        await foundTailor.save();
+
+        // Send email to updated tailor with new password
+        const mailOptions = {
+            from: 'f219202@cfd.nu.edu.pk.com',
+            to: email,
+            subject: 'Your password has been updated',
+            text: `Dear ${name}, your password has been updated successfully. Your new password is: ${password}`
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent to updated tailor with new password.");
+
+        // Redirect to admin.html
+        return res.redirect('/admin.html');
+
+    } catch (error) {
+        console.error("Error:", error);
+        return res.status(500).send("Internal Server Error");
+    }
+}
+
+
+async function handleDeleteTailorbyEmail(req, res) {
+    try {
+        // Find tailor by email
+        const foundTailor = await User.findOneAndDelete({ email: req.body.email, role: "tailor" });
+
+        // If tailor not found, send response
+        if (!foundTailor) {
+            return res.status(404).send("Tailor not found.");
+        }
+
+        // Redirect to admin.html with tailor details as query parameters
+        return res.redirect(`/admin.html?name=${foundTailor.name}&age=${foundTailor.age}&email=${foundTailor.email}&phone=${foundTailor.phone}&gender=${foundTailor.gender}&role=${foundTailor.role}`);
+    
+    } catch (error) {
+        console.error("Error:", error);
+        return res.status(500).send("Internal Server Error");
+    }
+}
+
+
+
+
+
+
+
+
+
 module.exports={
     handleLogin,
     handleSignUp,
@@ -226,5 +422,8 @@ module.exports={
     handleemailverification,
     generateVerificationCode,
     sendVerificationEmail,
-    handleForgotPasswordSubmit
-}
+    handleForgotPasswordSubmit,
+    handleadd_tailor,
+    handleFindTailorByEmail,
+    handleUpdateTailor,
+    handleDeleteTailorbyEmail}

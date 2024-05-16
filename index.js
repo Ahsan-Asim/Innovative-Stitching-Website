@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-connectMongoDb('mongodb://localhost:27017/WEBO');
+connectMongoDb('mongodb://localhost:27017/WEB2');
 
 app.use(logReqRes("log.txt"));
 

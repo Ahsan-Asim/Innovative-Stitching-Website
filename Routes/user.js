@@ -13,6 +13,10 @@ const {
     handleemailverification,
     generateVerificationCode,
     sendVerificationEmail,
+    handleadd_tailor,
+    handleFindTailorByEmail,
+    handleUpdateTailor,
+    handleDeleteTailorbyEmail
 } = require('../controllers/user');
 
 // Middleware for parsing request body
@@ -31,8 +35,15 @@ router.get("/emailverification", handleemailverification);
 router.post("/log-in", handleLogin);
 router.post("/sign_up", handleSign_Up);
 router.post("/emailverification", handleemailverification);
+router.post("/emailverification", handleemailverification);
+
 
 // New route for handling forgot password form submission
-router.post("/forgotpassword", handleForgotPasswordSubmit);
+router.post("/add_tailor",handleadd_tailor);
+router.post("/find_tailor",handleFindTailorByEmail)
+router.post("/update_tailor",handleUpdateTailor)
+router.post("/delete_tailor",handleDeleteTailorbyEmail)
+
+
 
 module.exports = router;

@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, unique: true }, // Make 'email' field unique
     phone: String,
     gender: String,
+    role:String,
     password: String
 });
 
