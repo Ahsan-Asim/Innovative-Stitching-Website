@@ -1400,3 +1400,255 @@
 1715887545948: ::1 GET: /style.css
 
 1715887556534: ::1 POST: /delete_tailor
+
+1715916059465: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715916060024: ::1 GET: /site.webmanifest
+
+1715916062278: ::1 GET: /assets/css/gijgo.css
+
+1715916062352: ::1 GET: /assets/js/gijgo.min.js
+
+1715916066918: ::1 POST: /log-in
+
+1715916134095: ::1 POST: /add_tailor
+
+1715916293140: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715916293450: ::1 GET: /site.webmanifest
+
+1715916296173: ::1 GET: /assets/css/gijgo.css
+
+1715916296216: ::1 GET: /assets/js/gijgo.min.js
+
+1715916302774: ::1 POST: /log-in
+
+1715916342294: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715916342499: ::1 GET: /site.webmanifest
+
+1715916344474: ::1 GET: /assets/css/gijgo.css
+
+1715916344577: ::1 GET: /assets/js/gijgo.min.js
+
+1715916349127: ::1 POST: /log-in
+
+1715916362379: ::1 POST: /find_tailor
+
+1715916710922: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715916711288: ::1 GET: /site.webmanifest
+
+1715916713451: ::1 GET: /assets/css/gijgo.css
+
+1715916713542: ::1 GET: /assets/js/gijgo.min.js
+
+1715916718217: ::1 POST: /log-in
+
+1715916723081: ::1 POST: /find_tailor
+
+1715916829256: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715916829764: ::1 GET: /site.webmanifest
+
+1715916831623: ::1 GET: /assets/css/gijgo.css
+
+1715916831676: ::1 GET: /assets/js/gijgo.min.js
+
+1715916835987: ::1 POST: /log-in
+
+1715916840321: ::1 POST: /find_tailor
+
+1715916840423: ::1 GET: /style.css
+
+1715916857678: ::1 POST: /update_tailor
+
+1715916883136: ::1 POST: /delete_tailor
+
+1715918627823: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715918628378: ::1 GET: /site.webmanifest
+
+1715918631022: ::1 GET: /assets/css/gijgo.css
+
+1715918631096: ::1 GET: /assets/js/gijgo.min.js
+
+1715918657301: ::1 POST: /log-in
+
+1715918673462: ::1 POST: /log-in
+
+1715918673694: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715918673910: ::1 GET: /site.webmanifest
+
+1715918728158: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715918728701: ::1 GET: /site.webmanifest
+
+1715918731272: ::1 GET: /assets/css/gijgo.css
+
+1715918731334: ::1 GET: /assets/js/gijgo.min.js
+
+1715918741580: ::1 POST: /log-in
+
+1715918741680: ::1 GET: /styles/bootstrap-4.1.2/bootstrap.min.css
+
+1715918741694: ::1 GET: /plugins/OwlCarousel2-2.2.1/owl.carousel.css
+
+1715918741694: ::1 GET: /plugins/OwlCarousel2-2.2.1/owl.theme.default.css
+
+1715918741695: ::1 GET: /plugins/OwlCarousel2-2.2.1/animate.css
+
+1715918741690: ::1 GET: /plugins/font-awesome-4.7.0/css/font-awesome.min.css
+
+1715918741696: ::1 GET: /styles/responsive.css
+
+1715918741696: ::1 GET: /styles/main_styles.css
+
+1715918741715: ::1 GET: /js/jquery-3.2.1.min.js
+
+1715918741719: ::1 GET: /images/search.png
+
+1715918741723: ::1 GET: /images/user.svg
+
+1715918741723: ::1 GET: /images/phone.svg
+
+1715918741724: ::1 GET: /images/cart.svg
+
+1715918741737: ::1 GET: /styles/bootstrap-4.1.2/popper.js
+
+1715918741740: ::1 GET: /styles/bootstrap-4.1.2/bootstrap.min.js
+
+1715918741745: ::1 GET: /plugins/greensock/TweenMax.min.js
+
+1715918741751: ::1 GET: /plugins/greensock/TimelineMax.min.js
+
+1715918741754: ::1 GET: /plugins/scrollmagic/ScrollMagic.min.js
+
+1715918741755: ::1 GET: /plugins/greensock/animation.gsap.min.js
+
+1715918741769: ::1 GET: /plugins/greensock/ScrollToPlugin.min.js
+
+1715918741785: ::1 GET: /plugins/OwlCarousel2-2.2.1/owl.carousel.js
+
+1715918741785: ::1 GET: /plugins/progressbar/progressbar.min.js
+
+1715918741785: ::1 GET: /plugins/easing/easing.js
+
+1715918741795: ::1 GET: /plugins/parallax-js-master/parallax.min.js
+
+1715918741804: ::1 GET: /js/custom.js
+
+1715918741811: ::1 GET: /images/home_1.jpg
+
+1715918741812: ::1 GET: /images/home_2.jpg
+
+1715918741815: ::1 GET: /images/heart.svg
+
+1715918741821: ::1 GET: /images/cart_2.svg
+
+1715918741826: ::1 GET: /images/home_3.jpg
+
+1715918741827: ::1 GET: /images/product_1.jpg
+
+1715918741831: ::1 GET: /images/product_2.jpg
+
+1715918741836: ::1 GET: /images/product_3.jpg
+
+1715918741850: ::1 GET: /images/heart_2.svg
+
+1715918741851: ::1 GET: /images/product_4.jpg
+
+1715918741852: ::1 GET: /images/product_5.jpg
+
+1715918741863: ::1 GET: /images/product_6.jpg
+
+1715918741866: ::1 GET: /images/icon_1.svg
+
+1715918741868: ::1 GET: /images/icon_2.svg
+
+1715918741879: ::1 GET: /images/icon_3.svg
+
+1715918741879: ::1 GET: /images/logo_2.png
+
+1715918741882: ::1 GET: /images/box_1.jpg
+
+1715918741899: ::1 GET: /images/box_1_img.jpg
+
+1715918741900: ::1 GET: /images/box_2.jpg
+
+1715918741909: ::1 GET: /images/box_2_img.jpg
+
+1715918741931: ::1 GET: /images/box_3_img.jpg
+
+1715918741839: ::1 GET: /images/home.jpg
+
+1715918741931: ::1 GET: /images/box_3.jpg
+
+1715929135863: ::1 GET: /js/jquery-3.3.1.min.js
+
+1715929135902: ::1 GET: /images/men_1.jpg
+
+1715929135931: ::1 GET: /images/men_2.jpg
+
+1715929135932: ::1 GET: /images/men_3.jpg
+
+1715929486102: ::1 GET: /images/women_1.jpg
+
+1715929486107: ::1 GET: /images/women_2.jpg
+
+1715929486109: ::1 GET: /images/women_3.jpg
+
+1715929492936: ::1 GET: /js/jquery-3.3.1.min.js
+
+1715929492963: ::1 GET: /images/men_1.jpg
+
+1715929493001: ::1 GET: /images/men_3.jpg
+
+1715929493001: ::1 GET: /images/men_2.jpg
+
+1715929497642: ::1 GET: /images/women_1.jpg
+
+1715929497645: ::1 GET: /images/women_2.jpg
+
+1715929497648: ::1 GET: /images/women_3.jpg
+
+1715929517602: ::1 GET: /js/jquery-3.3.1.min.js
+
+1715929517613: ::1 GET: /images/women_1.jpg
+
+1715929517653: ::1 GET: /images/women_2.jpg
+
+1715929517654: ::1 GET: /images/women_3.jpg
+
+1715929846189: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715929846626: ::1 GET: /site.webmanifest
+
+1715929849530: ::1 GET: /assets/css/gijgo.css
+
+1715929849595: ::1 GET: /assets/js/gijgo.min.js
+
+1715929849727: ::1 GET: /assets/img/favicon.png
+
+1715929857569: ::1 POST: /log-in
+
+1715929857740: ::1 GET: /favicon.ico
+
+1715929870340: ::1 POST: /find_tailor
+
+1715929903303: ::1 POST: /find_tailor
+
+1715929903379: ::1 GET: /style.css
+
+1715929926332: ::1 GET: /assets/css/gijgo.css
+
+1715929926392: ::1 GET: /assets/js/gijgo.min.js
+
+1715929958069: ::1 POST: /log-in
+
+1715929964886: ::1 GET: /images/women_1.jpg
+
+1715929964888: ::1 GET: /images/women_2.jpg
+
+1715929964895: ::1 GET: /images/women_3.jpg

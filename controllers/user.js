@@ -91,7 +91,7 @@ async function handleLogin(req,res){
         // If user and password are correct, redirect to home page
  // Redirect to the home page or any other page as needed
  if(user.role=="customer"){
-    return res.redirect('/');
+    return res.redirect('/customer_dasboard.html');
 }
 else if(user.role=="manager"){
     return res.redirect('/admin.html');
@@ -219,7 +219,7 @@ async function handleemailverification(req, res) {
             
             // Redirect to the home page or any other page as needed
             if(role=="customer"){
-                return res.redirect('/');
+                return res.redirect('/customer_dasboard.html');
             }
             else if(role=="manager"){
                 return res.redirect('/admin.html');
