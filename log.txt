@@ -855,6 +855,7 @@
 
 1715718825649: ::ffff:127.0.0.1 GET: /site.webmanifest
 
+<<<<<<< HEAD
 1715757995177: ::ffff:127.0.0.1 GET: /assets/img/hero/hero_arrow.png
 
 1715757995557: ::ffff:127.0.0.1 GET: /site.webmanifest
@@ -1652,3 +1653,8 @@
 1715929964888: ::1 GET: /images/women_2.jpg
 
 1715929964895: ::1 GET: /images/women_3.jpg
+=======
+1715719486104: ::1 GET: /assets/img/hero/hero_arrow.png
+
+1715719486888: ::1 GET: /site.webmanifest
+>>>>>>> 9f9db1bdd0bca8e437cfea7fed2c7e2105481d37
