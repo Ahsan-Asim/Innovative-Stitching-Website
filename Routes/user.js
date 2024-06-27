@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const bodyParser = require("body-parser");
+const app = express();
 const {
     handleLogin,
     handleSignUp,
@@ -18,7 +19,6 @@ const {
     handleUpdateTailor,
     handleDeleteTailorbyEmail
 } = require('../controllers/user');
-
 // Middleware for parsing request body
 router.use(bodyParser.json());
 router.use(express.static('views'));
