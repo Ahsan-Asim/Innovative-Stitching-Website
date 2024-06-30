@@ -35,7 +35,8 @@ router.get("/emailverification", handleemailverification);
 router.post("/log-in", handleLogin);
 router.post("/sign_up", handleSign_Up);
 router.post("/emailverification", handleemailverification);
-router.post("/emailverification", handleemailverification);
+router.post("/forgot", handleForgotPasswordSubmit);
+
 
 
 // New route for handling forgot password form submission
