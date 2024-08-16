@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require("multer");
 
 const bodyParser = require("body-parser");
+const app = express();
 const {
     handleLogin,
     handleSignUp,
@@ -20,6 +21,7 @@ const {
     handleGetUserByEmail,
     handleAdminPanel,
 } = require('../controllers/user');
+// <<<<<<< HEAD
 
 //multer
 // Configure Multer for file uploads
@@ -35,6 +37,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
+// =======
+// // Middleware for parsing request body
+// >>>>>>> 0f9f0ee6a1a5dd263e1ca7c6b2946a3ae84aa835
 router.use(bodyParser.json());
 router.use(express.static('views'));
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -47,9 +52,16 @@ router.get("/emailverification", handleemailverification);
 router.get("/admin", handleAdminPanel);
 
 router.post("/log-in", handleLogin);
+// <<<<<<< HEAD
 router.post('/sign_up', upload.single('image'), handleSign_Up); // Ensure upload is used correctly here
 router.post("/emailverification", handleemailverification);
 router.post("/forgot", handleForgotPasswordSubmit);
+// =======
+// router.post("/sign_up", handleSign_Up);
+// router.post("/emailverification", handleemailverification);
+// router.post("/forgot", handleForgotPasswordSubmit);
+
+// >>>>>>> 0f9f0ee6a1a5dd263e1ca7c6b2946a3ae84aa835
 
 // Routes for tailor management
 router.post("/add_tailor", handleadd_tailor);
