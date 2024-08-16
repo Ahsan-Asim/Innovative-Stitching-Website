@@ -48,10 +48,14 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="role">Role:</label>
-                        <input type="text" class="form-control" id="role" name="role">
-                    </div>
+
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="customer">Customer</option>
+                        <option value="tailor">Tailor</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                    
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" required>

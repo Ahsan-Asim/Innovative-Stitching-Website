@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f5f7;
+      padding: 20px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .card img {
+      height: 400px;
+      width: 100%;
+      object-fit: contain;
+    }
+    .card-body {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-center mb-4">Customer Dashboard</h1>
+  <div class="container">
+    <div class="row" id="productCards"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const response = await fetch('/customer_dashboard');
+        const products = await response.json();
+        
+        if (response.ok) {
+          const productCardsDiv = document.getElementById('productCards');
+          
+          products.forEach(product => {
+            const card = document.createElement('div');
+            card.classList.add('col-md-4');
+            
+            card.innerHTML = `
+              <div class="card">
+                <img src="/uploads/${product.image}" class="card-img-top" alt="${product.name}">
+                <div class="card-body">
+                  <h5 class="card-title">${product.name}</h5>
+                  <p class="card-text"><strong>Price:</strong> $${product.price}</p>
+                  <p class="card-text"><strong>Email:</strong> ${product.email}</p>
+                  <p class="card-text"><strong>Phone:</strong> ${product.phone}</p>
+                  <p class="card-text"><strong>Code:</strong> ${product.code}</p>
+                  <button class="btn btn-primary">Add to Cart</button>
+                </div>
+              </div>
+            `;
+            
+            productCardsDiv.appendChild(card);
+          });
+        } else {
+          alert('Failed to fetch products data');
+        }
+      } catch (error) {
+        console.error('Error fetching products data:', error);
+        alert('Error fetching products data');
+      }
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
